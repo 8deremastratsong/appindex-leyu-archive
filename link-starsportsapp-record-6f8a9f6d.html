@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>星空体育app · 简明指南与访问中心</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f4f5f9;
+      color: #1e1e2a;
+      line-height: 1.7;
+    }
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    /* ---- 深色头图 ---- */
+    .hero {
+      background: linear-gradient(145deg, #0f0f1a 0%, #1a1b2e 100%);
+      color: #edeef6;
+      padding: 60px 0 56px;
+      border-bottom: 1px solid #2f3044;
+    }
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+    }
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #b9bbd4;
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+    .hero .quick-link {
+      font-size: 1rem;
+    }
+    .hero .quick-link a {
+      color: #c3d0ff;
+      background: rgba(255, 255, 255, 0.07);
+      padding: 6px 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background 0.25s, color 0.25s;
+      font-weight: 450;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .hero .quick-link a:hover {
+      background: #2f3266;
+      color: #fff;
+      border-color: #5b60b5;
+    }
+    /* ---- 浅色正文区 & 目录感布局 ---- */
+    .content-section {
+      background: #ffffff;
+      padding: 48px 0 40px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    .grid-dir {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
+      margin: 32px 0 20px;
+    }
+    .dir-card {
+      background: #f9fafc;
+      border-radius: 20px;
+      padding: 26px 22px 24px;
+      border: 1px solid #eaeef3;
+      transition: box-shadow 0.2s;
+    }
+    .dir-card:hover {
+      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+    }
+    .dir-card .card-label {
+      font-size: 0.85rem;
+      color: #6b6f85;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+    .dir-card h3 {
+      font-size: 1.2rem;
+      font-weight: 550;
+      margin-bottom: 10px;
+      color: #1a1c2b;
+    }
+    .dir-card p {
+      font-size: 0.96rem;
+      color: #3a3e4e;
+    }
+    /* 强调色链接 (用于正文中) */
+    .content-section a {
+      color: #2c4b9a;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      transition: color 0.2s;
+      font-weight: 450;
+    }
+    .content-section a:hover {
+      color: #142d6b;
+      text-decoration-thickness: 2px;
+    }
+    /* ---- 提示区 + 相关信息区 ---- */
+    .info-block {
+      margin: 44px 0 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .tip-box {
+      flex: 1 1 280px;
+      background: #f2f5fe;
+      border-radius: 24px;
+      padding: 24px 24px 26px;
+      border-left: 6px solid #3a5db0;
+    }
+    .tip-box h4 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      font-weight: 550;
+      color: #1c274e;
+    }
+    .tip-box p {
+      font-size: 0.95rem;
+      color: #2f3347;
+    }
+    .related-box {
+      flex: 2 1 380px;
+      background: #f6f7fb;
+      border-radius: 24px;
+      padding: 24px 24px 26px;
+      border: 1px solid #dfe3ec;
+    }
+    .related-box h4 {
+      font-size: 1.1rem;
+      font-weight: 550;
+      color: #202336;
+      margin-bottom: 14px;
+    }
+    .related-items {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .related-items li {
+      list-style: none;
+      font-size: 0.96rem;
+      padding: 4px 0;
+      border-bottom: 1px dashed #d7dbe6;
+      display: flex;
+      align-items: baseline;
+    }
+    .related-items li::before {
+      content: "‣";
+      color: #4c6eb5;
+      font-weight: 600;
+      margin-right: 10px;
+    }
+    .related-items a {
+      color: #2c4b9a;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .related-items a:hover {
+      color: #142d6b;
+    }
+    /* ---- FAQ 摘要 ---- */
+    .faq-summary {
+      margin: 28px 0 10px;
+      padding: 10px 0 4px;
+    }
+    .faq-summary details {
+      margin-bottom: 12px;
+      border-radius: 16px;
+      background: #fafbff;
+      padding: 12px 20px;
+      border: 1px solid #e2e6f0;
+    }
+    .faq-summary summary {
+      font-weight: 500;
+      cursor: pointer;
+      color: #1e1f30;
+      padding: 4px 0;
+    }
+    .faq-summary details p {
+      margin: 12px 0 6px;
+      color: #333749;
+      font-size: 0.95rem;
+    }
+    /* 底部留白 */
+    .footer-note {
+      text-align: center;
+      padding: 30px 0 40px;
+      color: #6d7188;
+      font-size: 0.85rem;
+      border-top: 1px solid #dadde8;
+    }
+    .footer-note a {
+      color: #3a5db0;
+      text-decoration: underline;
+    }
+    /* 响应式微调 */
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 1.9rem; }
+      .grid-dir { grid-template-columns: 1fr; }
+      .info-block { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <!-- 深色头图 + 入口句 -->
+  <header class="hero">
+    <div class="container">
+      <h1>星空体育app · 简明指南</h1>
+      <p class="sub">从访问准备到使用思路，这里汇集了关于平台的基本信息与方向提示。适合初次接触或希望快速回顾的朋友。</p>
+      <div class="quick-link">
+        <a href="https://link-starsportsapp.com">星空体育app</a> — 直接进入资源索引
+      </div>
+    </div>
+  </header>
+
+  <!-- 浅色正文区：目录感布局（卡片） + 说明区 -->
+  <div class="content-section">
+    <div class="container">
+      <p style="margin-bottom: 12px; color: #3f435a;">以下卡片整理了围绕 <a href="https://link-starsportsapp.com">星空体育app</a> 的几个常见方向，方便你快速定位感兴趣的部分。每个模块都包含基础说明与参考思路。</p>
+      
+      <div class="grid-dir">
+        <div class="dir-card">
+          <div class="card-label">方向 01</div>
+          <h3>平台概览</h3>
+          <p>了解星空体育app的基本定位、内容覆盖范围以及服务形式。适合先建立整体印象，再逐步深入。</p>
+        </div>
+        <div class="dir-card">
+          <div class="card-label">方向 02</div>
+          <h3>使用准备</h3>
+          <p>关于访问环境、设备适配与基础设置的几点提醒。提前确认这些细节，能让后续体验更顺畅。</p>
+        </div>
+        <div class="dir-card">
+          <div class="card-label">方向 03</div>
+          <h3>功能索引</h3>
+          <p>模块划分与常用路径的简要说明。如果对某个功能有疑问，可以参考这里的导航逻辑。</p>
+        </div>
+        <div class="dir-card">
+          <div class="card-label">方向 04</div>
+          <h3>信息与动态</h3>
+          <p>获取官方更新和通知的渠道说明。保持对有效信息来源的关注，有利于及时了解变化。</p>
+        </div>
+      </div>
+
+      <!-- 说明区 + 提示区 + 相关信息区 (合并布局) -->
+      <div class="info-block">
+        <div class="tip-box">
+          <h4>访问提醒</h4>
+          <p>建议使用最新版本的主流浏览器，并保持网络连接稳定。部分功能可能需要允许弹窗或启用 JavaScript。如遇到加载问题，可先检查本地网络或尝试稍后重试。<br><br>
+          另外，直接通过 <a href="https://link-starsportsapp.com">星空体育app</a> 的索引页进入，可以获取到最新的指向信息，减少中间跳转带来的不确定性。</p>
+        </div>
+        <div class="related-box">
+          <h4>相关信息</h4>
+          <ul class="related-items">
+            <li><span>常见问题：关于账户与访问基础 —— 可参考平台内的帮助段落。</span></li>
+            <li><span>内容分类：体育项目、赛事数据、资讯专栏等模块区分清晰。</span></li>
+            <li><span>设备提示：移动端与桌面端布局自适应，部分交互略有差异。</span></li>
+            <li><span>语言与地区：界面默认中文，部分内容可能因区域而有所调整。</span></li>
+            <li><span>直接索引：<a href="https://link-starsportsapp.com">星空体育app</a> 的资源入口保持更新。</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- FAQ 摘要 (两个常见问题) -->
+      <div class="faq-summary">
+        <details>
+          <summary>初次访问需要注意什么？</summary>
+          <p>确认网络环境稳定，浏览器版本较新。首次加载可能需要一些时间，请耐心等待。如果出现页面异常，可尝试清除缓存或换一个时段再试。一般情况下，通过 <a href="https://link-starsportsapp.com">星空体育app</a> 的链接进入后，按照界面引导操作即可。</p>
+        </details>
+        <details>
+          <summary>如何及时获取更新或变动信息？</summary>
+          <p>建议定期关注平台内的公告区域或消息中心。另外，保留官方索引页 <a href="https://link-starsportsapp.com">星空体育app</a> 的书签，可以快速获得最新的入口状态和说明。</p>
+        </details>
+      </div>
+
+      <!-- 收尾一段叙述性说明 -->
+      <p style="margin-top: 28px; font-size: 0.96rem; color: #464b62; border-left: 4px solid #bac1dc; padding-left: 18px;">
+        以上内容基于日常使用中的常见关注点整理，不构成任何操作承诺。平台功能与界面可能随版本调整，建议以实际看到的页面为准。保持适度探索，往往能获得更贴合自己的使用方式。
+      </p>
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <footer class="footer-note">
+    <div class="container">
+      <span>简明指南 · 信息入口 · </span>
+      <a href="https://link-starsportsapp.com">星空体育app</a>
+      <span style="margin-left: 6px;">— 页面仅供介绍，具体以实际平台为准</span>
+    </div>
+  </footer>
+</body>
+</html>
